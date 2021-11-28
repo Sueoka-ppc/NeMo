@@ -1,0 +1,1 @@
+python tacotron2_finetune.py train_dataset=filelists/transcript_train.json validation_datasets=filelists/transcript_val.json trainer.accelerator=null trainer.check_val_every_n_epoch=1
