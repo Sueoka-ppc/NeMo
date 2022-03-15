@@ -19,12 +19,12 @@ model:
   train_ds:
     manifest_filepath: ${train_dataset}
     sample_rate: ${sample_rate}
-    batch_size: 32
+    batch_size: 8
     max_duration: null
     min_duration: 0.1
     trim: false
     shuffle: True
-    num_workers: 8
+    num_workers: 1
     cmu_dict_path: ${cmu_dict_path}
 
 
@@ -36,7 +36,7 @@ model:
     min_duration: 0.1
     trim: false
     shuffle: False
-    num_workers: 8
+    num_workers: 1
     cmu_dict_path: ${cmu_dict_path}
 
   test_ds:
@@ -47,7 +47,7 @@ model:
     min_duration: 0.1
     trim: false
     shuffle: False
-    num_workers: 8
+    num_workers: 1
     cmu_dict_path: ${cmu_dict_path}
 
   parser:
@@ -138,6 +138,11 @@ trainer:
 
 exp_manager:
   exp_dir: null
-  name: ${name}
+  name: glow_tts_train01
   create_tensorboard_logger: True
-  create_checkpoint_callback: True
+  resume_if_exists: True
+  resume_ignore_no_checkpoint: True
+  checkpoint_callback_params:
+    save_top_k: 5
+    always_save_nemo: True
+   
