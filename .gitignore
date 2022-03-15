@@ -162,7 +162,7 @@ examples/*/nemo_experiments
 examples/*/.hydra
 examples/*/wandb
 examples/*/data
-examples/*/*/.wav
+*.wav
 wandb
 dump.py
 
